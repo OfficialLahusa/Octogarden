@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   maxHP: 50
   currentHP: 50
-  movementSpeed: 2.5
+  movementSpeed: 1.25
   walkWobbleStrength: 7.5
   walkWobbleSpeed: 2.5
 --- !u!1 &2998984803985203951
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 4654098553125539949}
   m_Layer: 0
   m_Name: Rect
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,7 +172,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0

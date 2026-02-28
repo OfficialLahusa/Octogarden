@@ -21,10 +21,26 @@ public class Enemy : MonoBehaviour
         
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
         lifetime += Time.deltaTime;
+
+        float rayDist = 1f;
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.left, rayDist);
+        bool hasHit = false;
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider != null && hit.collider.CompareTag("Cactus"))
+            {
+                hasHit = true;
+                break;
+            }
+        }
+            
+        Debug.DrawLine(transform.position, transform.position + Vector3.left * rayDist, hasHit ? Color.green : Color.red, 0f, false);
+        if (!hasHit)
+            transform.Translate(Vector3.left * movementSpeed * Time.fixedDeltaTime);
 
         transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Sin(lifetime * walkWobbleSpeed * movementSpeed) * walkWobbleStrength);
     }

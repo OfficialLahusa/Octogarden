@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 112}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 19424
+  controlID: 37759
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -47,9 +47,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 976
+    x: 1060
     y: -1072.8
-    width: 316.40002
+    width: 232.40002
     height: 568.4
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 316.40002, y: 178}
+  m_TargetSize: {x: 232.40002, y: 131}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -85,16 +85,16 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -126.56001
-    m_HBaseRangeMax: 126.56001
-    m_VBaseRangeMin: -71.200005
-    m_VBaseRangeMax: 71.200005
+    m_HBaseRangeMin: -92.960014
+    m_HBaseRangeMax: 92.960014
+    m_VBaseRangeMin: -52.4
+    m_VBaseRangeMax: 52.4
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
+    m_HSlider: 1
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
@@ -106,23 +106,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 316.40002
+      width: 232.40002
       height: 547.4
     m_Scale: {x: 1.25, y: 1.25}
-    m_Translation: {x: 158.20001, y: 273.7}
+    m_Translation: {x: 116.20001, y: 273.7}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -126.56001
+      x: -92.96001
       y: -218.96
-      width: 253.12003
+      width: 185.92001
       height: 437.92
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 395.50003, y: 710.5}
+  m_LastWindowPixelSize: {x: 290.50003, y: 710.5}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 19425
+  controlID: 37760
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 56}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 19426
+  controlID: 37761
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -248,11 +248,13 @@ MonoBehaviour:
     m_DynamicPanelBehavior: 0
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
+      scrollPos: {x: 0, y: 28.599976}
       m_SelectedIDs: []
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
+      - m_Data: -137098
+      - m_Data: -89080
       - m_Data: -79718
       - m_Data: -79576
       - m_Data: -79518
@@ -260,6 +262,7 @@ MonoBehaviour:
       - m_Data: -79142
       - m_Data: -78792
       - m_Data: -77524
+      - m_Data: -75988
       - m_Data: -73822
       - m_Data: -73632
       - m_Data: -66826
@@ -307,10 +310,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 387.2
     y: 0
-    width: 858.39996
+    width: 942.39996
     height: 594.4
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 226}
+  m_MaxSize: {x: 4002, y: 4026}
   m_ActualView: {fileID: 8}
   m_Panes:
   - {fileID: 8}
@@ -339,7 +342,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 117.600006
     y: -1072.8
-    width: 856.39996
+    width: 940.39996
     height: 568.4
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -911,9 +914,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 0.33267242, y: 0.032434214, z: -0.022621278}
+    m_Target: {x: -1.8015254, y: -0.44406423, z: 73.483116}
     speed: 2
-    m_Value: {x: 0.33267242, y: 0.032434214, z: -0.022621278}
+    m_Value: {x: -1.8015254, y: -0.44406423, z: 73.483116}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -963,9 +966,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.7212389
+    m_Target: 4.2615128
     speed: 2
-    m_Value: 2.7212389
+    m_Value: 4.2615128
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1014,9 +1017,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1245.6
+    x: 1329.6
     y: 0
-    width: 318.40002
+    width: 234.40002
     height: 594.4
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
@@ -1101,7 +1104,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Prefabs
+    - Assets/Resources/Sprites/Environment
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1111,7 +1114,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Prefabs
+  - Assets/Resources/Sprites/Environment
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\lasse\Documents\Macromedia GameJam 2026\Octogarden\Octogarden
   m_LockTracker:
@@ -1120,13 +1123,14 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs:
-    - m_Data: 78636
+    - m_Data: 87384
     m_LastClickedID:
-      m_Data: 78636
+      m_Data: 87384
     m_ExpandedIDs:
     - m_Data: 0
     - m_Data: 66024
     - m_Data: 78632
+    - m_Data: 87382
     - m_Data: 1000000000
     - m_Data: 2147483647
     m_RenameOverlay:
@@ -1190,8 +1194,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: []
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs:
+    - m_Data: -73632
+    - m_Data: -79142
+    m_LastClickedInstanceID: -73632
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: []
     m_RenameOverlay:
@@ -1331,7 +1337,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: -79142
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
