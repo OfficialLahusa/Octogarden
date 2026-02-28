@@ -7,6 +7,9 @@ public class CactusEntity : MonoBehaviour
     [SerializeField]
     TMP_Text hpText;
 
+    [SerializeField]
+    SpriteRenderer flowerRenderer;
+
     CactusData entityData;
     
     public uint columnIndex = 0;
@@ -23,6 +26,12 @@ public class CactusEntity : MonoBehaviour
             entityData = CactusFactory.CreateCactus();
             PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] = entityData;
         }
+
+        // Set flower sprite color based on cactus class
+        if (flowerRenderer != null)
+        {
+            flowerRenderer.color = entityData.FlowerColor.ToColor();
+        }
     }
 
     void Update()
@@ -30,18 +39,24 @@ public class CactusEntity : MonoBehaviour
         if (hpText != null)
             hpText.text = $"{entityData.Name}\n{entityData.CurrentHealth}/{entityData.MaxHealth}";
 
-        bool wasClicked = false;
-        if (Mouse.current.leftButton.isPressed)
+        bool wasHovered = false;
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+        if (hit.collider != null && hit.collider.gameObject == gameObject)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
-            if (hit.collider != null && hit.collider.gameObject == gameObject)
-            {
-                wasClicked = true;
-            }
+            wasHovered = true;
         }
 
         // TODO: Show tooltip, etc.
+        if (wasHovered)
+        {
+            TooltipManager.ShowTooltip(entityData);
+        }
+
+        if (entityData.FlowerColor.Equals(CactusFlowerColor.Rainbow) && flowerRenderer != null)
+        {
+            flowerRenderer.color = Color.HSVToRGB((Time.time * 0.1f) % 1f, 1f, 1f);
+        }
     }
 
     public void Damage(uint damageAmount)
