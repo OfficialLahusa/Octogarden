@@ -10,22 +10,29 @@ public class Enemy : MonoBehaviour
     float movementSpeed = 2f;
 
     [SerializeField]
+    float meleeRange = 0.65f;
+    [SerializeField]
+    uint attackDamage = 25;
+    float attackCooldownSeconds = 0.6f;
+
+    [SerializeField]
     float walkWobbleStrength = 7.5f;
     [SerializeField]
     float walkWobbleSpeed = 2.5f;
 
     float lifetime = 0f;
+    float attackCooldownTimer = 0f;
 
     void Start()
     {
         
     }
 
-    void FixedUpdate()
+    void Update()
     {
         lifetime += Time.deltaTime;
 
-        float rayDist = 1f;
+        float rayDist = 0.65f;
 
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.left, rayDist);
         bool hasHit = false;
@@ -38,9 +45,9 @@ public class Enemy : MonoBehaviour
             }
         }
             
-        Debug.DrawLine(transform.position, transform.position + Vector3.left * rayDist, hasHit ? Color.green : Color.red, 0f, false);
+        //Debug.DrawLine(transform.position, transform.position + Vector3.left * rayDist, hasHit ? Color.green : Color.red, 0f, false);
         if (!hasHit)
-            transform.Translate(Vector3.left * movementSpeed * Time.fixedDeltaTime);
+            transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
 
         transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Sin(lifetime * walkWobbleSpeed * movementSpeed) * walkWobbleStrength);
     }

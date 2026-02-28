@@ -11,8 +11,10 @@ public class CactusData
     public CactusAffix Affixes { get; set; }
 
     // TODO: Stat system
+    public uint MaxHealth { get; set; }
+    public uint CurrentHealth { get; set; }
 
-    public CactusData(string name, CactusClass mechanicalClass)
+    public CactusData(string name, CactusClass mechanicalClass, uint maxHealth)
     {
         Name = name;
         Class = mechanicalClass;
@@ -20,6 +22,8 @@ public class CactusData
         FlowerColor = CactusFlowerColor.Red;
         PotType = CactusPotType.Ceramic;
         Affixes = CactusAffix.None;
+        MaxHealth = maxHealth;
+        CurrentHealth = maxHealth;
     }
 
     public CactusData(CactusData other)
@@ -30,5 +34,7 @@ public class CactusData
         FlowerColor = other.FlowerColor;
         PotType = other.PotType;
         Affixes = other.Affixes;
+        MaxHealth = other.MaxHealth;
+        CurrentHealth = other.CurrentHealth;
     }
 }
