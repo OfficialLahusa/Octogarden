@@ -28,12 +28,8 @@ public class PricklyPearProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collided with " + collision.gameObject.name);
-
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("Hit an enemy!");
-
             MeleeEnemy enemy = collision.GetComponentInParent<MeleeEnemy>();
             if (enemy != null)
             {

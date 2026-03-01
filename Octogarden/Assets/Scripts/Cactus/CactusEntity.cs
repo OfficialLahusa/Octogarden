@@ -135,7 +135,6 @@ public class CactusEntity : MonoBehaviour
             GameObject projectileObj = Instantiate(pricklyPearPrefab, transform.position, Quaternion.identity);
             PricklyPearProjectile projectile = projectileObj.GetComponent<PricklyPearProjectile>();
             projectile.damageOnHit = 20; // TODO: Refine this damage value based on cactus stats
-            Debug.Log("Spawned projectile from Cactus Entity " + entityData.Name);
         }
         else
         {
