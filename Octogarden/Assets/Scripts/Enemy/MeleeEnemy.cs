@@ -10,7 +10,7 @@ public class MeleeEnemy : MonoBehaviour
     float movementSpeed = 2f;
 
     [SerializeField]
-    float meleeRange = 0.65f;
+    float meleeRange = 0.4f;
     [SerializeField]
     uint attackDamage = 5;
     [SerializeField]
@@ -42,9 +42,7 @@ public class MeleeEnemy : MonoBehaviour
             attackCooldownTimer = 0f;
         }
 
-        float rayDist = 0.65f;
-
-        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.left, rayDist);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.left, meleeRange);
         bool hasHit = false;
         CactusEntity hitCactus = null;
         foreach (RaycastHit2D hit in hits)

@@ -48,7 +48,7 @@ MonoBehaviour:
   maxHP: 100
   currentHP: 100
   movementSpeed: 1.75
-  meleeRange: 0.65
+  meleeRange: 0.2
   attackDamage: 5
   attackIntervalSeconds: 0.4
   walkWobbleStrength: 7.5
