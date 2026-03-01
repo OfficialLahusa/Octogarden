@@ -155,7 +155,6 @@ public class CactusEntity : MonoBehaviour
         }
         else
         {
-            // TODO: Implement melee attack logic (e.g. damage enemies in front of the cactus)
             float rayDist = 2.25f;
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.right, rayDist);
             MeleeEnemy hitEnemy = null;
