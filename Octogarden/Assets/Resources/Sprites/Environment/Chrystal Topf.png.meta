@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c2bcf24fd6a5627439b6c012181e763e
+guid: baeeae07b37968b4eb098d7e1111c566
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8676261538886388913
-    second: basic kaktus_0
+      213: -260042951039008576
+    second: Chrystal Topf_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: basic kaktus_0
+      name: Chrystal Topf_0
       rect:
         serializedVersion: 2
-        x: 331
-        y: 120
-        width: 321
-        height: 771
+        x: 454
+        y: 64
+        width: 1196
+        height: 1498
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f43fa44691ab79780800000000000000
-      internalID: -8676261538886388913
+      spriteID: 0c0c9f45054246cf0800000000000000
+      internalID: -260042951039008576
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      basic kaktus_0: -8676261538886388913
+      Chrystal Topf_0: -260042951039008576
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

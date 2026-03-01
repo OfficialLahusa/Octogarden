@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b77f02404eae33b498274d4ea41a3e8b
+guid: 7b3ee86b10e497c4d817ce58292537d3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6561802825860627227
-    second: casual squid_0
+      213: -2854829985444555172
+    second: Plastik Topf_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: casual squid_0
+      name: Plastik Topf_0
       rect:
         serializedVersion: 2
-        x: 285
-        y: 189
-        width: 478
-        height: 714
+        x: 354
+        y: 46
+        width: 1305
+        height: 1726
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1bb39977e4301b50800000000000000
-      internalID: 6561802825860627227
+      spriteID: c569177f04b9168d0800000000000000
+      internalID: -2854829985444555172
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      casual squid_0: 6561802825860627227
+      Plastik Topf_0: -2854829985444555172
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

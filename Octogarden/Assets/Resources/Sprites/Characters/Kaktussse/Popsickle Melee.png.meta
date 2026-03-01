@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 267367ad549de5a41a0b0e6689851c5e
+guid: 0f31ae1cec1b44947a6af09287dd0102
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2745403888437286016
-    second: basic onigirikaktus_0
+      213: -6051047208203555316
+    second: popsicle 3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: basic onigirikaktus_0
+      name: popsicle 3_0
       rect:
         serializedVersion: 2
-        x: 307
-        y: 154
-        width: 330
-        height: 737
+        x: 131
+        y: 153
+        width: 622
+        height: 747
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 084d74f6a42a91620800000000000000
-      internalID: 2745403888437286016
+      spriteID: c0e68ebbf9c560ca0800000000000000
+      internalID: -6051047208203555316
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      basic onigirikaktus_0: 2745403888437286016
+      popsicle 3_0: -6051047208203555316
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
