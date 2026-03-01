@@ -163,7 +163,14 @@ public class ShopHandler : MonoBehaviour
     {
         Vector2Int sourcePos = _clickedPositions[0];
 
-        // TODO
+        CactusData sourceCactus = PlayerInventory.Instance.placedCacti[sourcePos.x, sourcePos.y];
+
+        // Create mutated data
+        CactusData mutated = CactusFactory.CreateMutatedCactus(sourceCactus);
+        PlayerInventory.Instance.placedCacti[sourcePos.x, sourcePos.y] = mutated;
+
+        // Actually perform the mutation in the world, not just the data
+        PlayerInventory.Instance.placedCactusEntities[sourcePos.x, sourcePos.y].UpdateEntityData();
 
         _clickedPositions.Clear();
         UpdateStateText();
