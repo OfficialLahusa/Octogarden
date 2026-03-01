@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 725699472276159987}
-  - component: {fileID: 9106485217845688819}
+  - component: {fileID: 2856405105659008918}
   m_Layer: 0
   m_Name: Fast Enemy
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 4840922266702681744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9106485217845688819
+--- !u!114 &2856405105659008918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,15 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a252466909a04f40a677341b8caf6aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  maxHP: 50
-  currentHP: 50
-  movementSpeed: 1.25
+  maxHP: 100
+  movementSpeed: 1.75
   meleeRange: 0.2
   attackDamage: 5
   attackIntervalSeconds: 0.4
   walkWobbleStrength: 7.5
   walkWobbleSpeed: 2.5
-  seaweedDroppedOnKill: 8
+  seaweedDroppedOnKill: 12
 --- !u!1 &2998984803985203951
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,7 +82,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.25, z: -2}
-  m_LocalScale: {x: 0.75, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 725699472276159987}
@@ -137,8 +136,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.4956805, g: 0.04632958, b: 0.90943396, a: 1}
+  m_Sprite: {fileID: -465159287260294083, guid: 9d3acf132e6f2da4693bd017d59d4c65, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -185,13 +184,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 8.69, y: 6.49}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.1, y: 6.62}
   m_EdgeRadius: 0
 --- !u!50 &2729070628883414053
 Rigidbody2D:

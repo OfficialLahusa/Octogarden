@@ -22,6 +22,9 @@ public class ShopHandler : MonoBehaviour
 
     private List<Vector2Int> _clickedPositions = new List<Vector2Int>();
 
+    private uint _mutationsPerformed = 0;
+    private uint _crossbreedsPerformed = 0;
+
     void Awake()
     {
         stateText.text = string.Empty;
@@ -64,7 +67,11 @@ public class ShopHandler : MonoBehaviour
 
     public void OnClickExistingCactus(uint column, uint row)
     {
-        if (CurrentShopState == ShopState.PickMoveTarget)
+        if (CurrentShopState == ShopState.PickMoveSource)
+        {
+            _clickedPositions.Add(new Vector2Int((int)column, (int)row));
+        }
+        else if (CurrentShopState == ShopState.PickMoveTarget)
         {
             _clickedPositions.Add(new Vector2Int((int)column, (int)row));
             PerformMove();
@@ -134,14 +141,17 @@ public class ShopHandler : MonoBehaviour
     public void OnClickMutationButton()
     {
         CancelShopInteraction();
-        CurrentShopState = ShopState.PickMutationTarget;
+
+        if (PlayerInventory.Instance.Seaweed >= GetMutationCost())
+            CurrentShopState = ShopState.PickMutationTarget;
         UpdateStateText();
     }
 
     public void OnClickCrossBreedButton()
     {
         CancelShopInteraction();
-        CurrentShopState = ShopState.PickCrossBreedSourceOne;
+        if (PlayerInventory.Instance.Seaweed >= GetCrossBreedCost())
+            CurrentShopState = ShopState.PickCrossBreedSourceOne;
         UpdateStateText();
     }
 
@@ -159,6 +169,16 @@ public class ShopHandler : MonoBehaviour
         UpdateStateText();
     }
 
+    public uint GetMutationCost()
+    {
+        return 100+15*_mutationsPerformed;
+    }
+
+    public uint GetCrossBreedCost()
+    {
+        return 275+20*_crossbreedsPerformed;
+    }
+
     public void PerformMutation()
     {
         Vector2Int sourcePos = _clickedPositions[0];
@@ -174,6 +194,9 @@ public class ShopHandler : MonoBehaviour
 
         _clickedPositions.Clear();
         UpdateStateText();
+
+        PlayerInventory.Instance.Seaweed -= GetMutationCost();
+        _mutationsPerformed++;
     }
 
     public void PerformCrossBreed()
@@ -194,6 +217,9 @@ public class ShopHandler : MonoBehaviour
 
         _clickedPositions.Clear();
         UpdateStateText();
+
+        PlayerInventory.Instance.Seaweed -= GetCrossBreedCost();
+        _crossbreedsPerformed++;
     }
 
     public void PerformMove()

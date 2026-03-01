@@ -36,7 +36,10 @@ public class CactusEntity : MonoBehaviour
 
         UpdateEntityData();
 
-        _hueOffset = Random.Range(0f, 1f);        
+        _hueOffset = Random.Range(0f, 1f);   
+        
+        if (entityData != null)
+            _attackCooldownTimer = entityData.AttackIntervalSeconds;
     }
 
     void Update()
@@ -111,7 +114,7 @@ public class CactusEntity : MonoBehaviour
         {
             entityData.CurrentHealth = 0;
             PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] = null;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         else
         {
@@ -155,7 +158,6 @@ public class CactusEntity : MonoBehaviour
         }
         else
         {
-            // TODO: Implement melee attack logic (e.g. damage enemies in front of the cactus)
             float rayDist = 2.25f;
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.right, rayDist);
             MeleeEnemy hitEnemy = null;

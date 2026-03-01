@@ -1,5 +1,6 @@
 #nullable enable
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
@@ -89,5 +90,20 @@ public class PlayerInventory : MonoBehaviour
             Debug.LogWarning($"Overwriting existing cactus entity at ({columnIndex}, {rowIndex})");
         }
         placedCactusEntities[columnIndex, rowIndex] = entity;
+    }
+
+    public void HealAllCacti()
+    {
+        for (uint col = 0; col < GRID_COLUMNS; col++)
+        {
+            for (uint row = 0; row < GRID_ROWS; row++)
+            {
+                CactusData? entityData = placedCacti[col, row];
+                if (entityData != null)
+                {
+                    entityData.CurrentHealth = entityData.MaxHealth;
+                }
+            }
+        }
     }
 }

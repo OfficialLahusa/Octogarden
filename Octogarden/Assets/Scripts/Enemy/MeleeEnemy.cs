@@ -74,6 +74,10 @@ public class MeleeEnemy : MonoBehaviour
         {
             _currentHP = 0;
             PlayerInventory.Instance.Seaweed += seaweedDroppedOnKill;
+
+            // Register kill at wave
+            FindFirstObjectByType<WaveSpawner>().RegisterKill();
+
             Destroy(gameObject);
         }
         else

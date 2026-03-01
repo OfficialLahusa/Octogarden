@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.InputSystem.LowLevel.InputStateHistory;
 
 public static class CactusFactory
 {
@@ -43,6 +44,42 @@ public static class CactusFactory
         return data;
     }
 
+    public static CactusData CreateMutatedCactus(CactusData original)
+    {
+        CactusData child = new CactusData(original);
+
+        // Alter one random trait (class, outfit, flower color)
+        int traitToMutate = UnityEngine.Random.Range(0, 3);
+        switch (traitToMutate)
+        {
+            case 0:
+                child.Class = GetRandomCactusClass();
+                break;
+            case 1:
+                child.OutfitType = GetRandomOutfitType();
+                break;
+            case 2:
+                child.FlowerColor = GetRandomFlowerColor();
+                break;
+        }
+
+        // Base trait mutation
+        child.MaxHealth = original.MaxHealth + (uint)UnityEngine.Random.Range(-12, 24);
+        child.MaxHealth = child.MaxHealth < 1 ? 1 : child.MaxHealth; // Ensure MaxHealth doesn't drop below 1
+
+        child.AttackDamage = original.AttackDamage + (uint)UnityEngine.Random.Range(-6, 12);
+        child.AttackDamage = child.AttackDamage < 1 ? 1 : child.AttackDamage; // Ensure AttackDamage doesn't drop below 1
+
+        child.AttackIntervalSeconds = Mathf.Max(original.AttackIntervalSeconds + UnityEngine.Random.Range(-0.15f, 0.075f), 0.01f);
+
+        child.CurrentHealth = child.CurrentHealth > child.MaxHealth ? child.MaxHealth : child.CurrentHealth;
+
+        // TODO: Possibly add random affix
+        //child.Affixes |= second.Affixes;
+
+        return child;
+    }
+
     public static CactusData CreateCrossBredCactus(CactusData first, CactusData second)
     {
         CactusData child = new CactusData(first);
@@ -77,7 +114,7 @@ public static class CactusFactory
         child.CurrentHealth = child.MaxHealth;
 
         // Random mutation choices
-        // TODO
+        child = CreateMutatedCactus(child);
 
         return child;
     }
@@ -136,6 +173,12 @@ public static class CactusFactory
             default:
                 throw new ArgumentException("Invalid CactusClass");
         }
+    }
+
+    private static CactusOutfitType GetRandomOutfitType()
+    {
+        Array values = Enum.GetValues(typeof(CactusOutfitType));
+        return (CactusOutfitType)values.GetValue(UnityEngine.Random.Range(0, values.Length));
     }
 
     private static CactusFlowerColor GetRandomFlowerColor()
