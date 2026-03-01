@@ -4,6 +4,13 @@ using UnityEngine.InputSystem;
 
 public class CactusEntity : MonoBehaviour
 {
+    // Variants
+    [SerializeField]
+    GameObject basicMelee;
+    [SerializeField]
+    GameObject basicRanged;
+    [SerializeField]
+    GameObject basicTank;
 
     [SerializeField]
     TMP_Text hpText;
@@ -105,6 +112,14 @@ public class CactusEntity : MonoBehaviour
         if (flowerRenderer != null && entityData != null)
         {
             flowerRenderer.color = entityData.FlowerColor.ToColor();
+        }
+
+        // Activate the correct variant based on cactus class
+        if (entityData != null)
+        {
+            basicMelee.SetActive(entityData.Class == CactusClass.Melee);
+            basicRanged.SetActive(entityData.Class == CactusClass.Ranged);
+            basicTank.SetActive(entityData.Class == CactusClass.Tank);
         }
     }
 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e87177b1021e6e248a463c920149e17e
+guid: c2bcf24fd6a5627439b6c012181e763e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1650838442330995289
-    second: popsicle 2_0
+      213: -8676261538886388913
+    second: basic kaktus_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: popsicle 2_0
+      name: basic kaktus_0
       rect:
         serializedVersion: 2
-        x: 170
-        y: 153
-        width: 553
-        height: 753
+        x: 331
+        y: 120
+        width: 321
+        height: 771
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a54d47ee2b0719e0800000000000000
-      internalID: -1650838442330995289
+      spriteID: f43fa44691ab79780800000000000000
+      internalID: -8676261538886388913
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      popsicle 2_0: -1650838442330995289
+      basic kaktus_0: -8676261538886388913
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
