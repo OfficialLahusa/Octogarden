@@ -20,7 +20,7 @@ public class ShopHandler : MonoBehaviour
     }
     public ShopState CurrentShopState { get; private set; } = ShopState.Default;
 
-    private List<Vector2Int> clickedPositions = new List<Vector2Int>();
+    private List<Vector2Int> _clickedPositions = new List<Vector2Int>();
 
     void Awake()
     {
@@ -58,7 +58,7 @@ public class ShopHandler : MonoBehaviour
             _ => ShopState.Default
         };
 
-        clickedPositions.Clear();
+        _clickedPositions.Clear();
         UpdateStateText();
     }
 
@@ -66,22 +66,32 @@ public class ShopHandler : MonoBehaviour
     {
         if (CurrentShopState == ShopState.PickMoveTarget)
         {
-            clickedPositions.Add(new Vector2Int((int)column, (int)row));
+            _clickedPositions.Add(new Vector2Int((int)column, (int)row));
             PerformMove();
         }
         else if (CurrentShopState == ShopState.PickMutationTarget)
         {
-            clickedPositions.Add(new Vector2Int((int)column, (int)row));
+            _clickedPositions.Add(new Vector2Int((int)column, (int)row));
             PerformMutation();
         }
         else if (CurrentShopState == ShopState.PickRepotTarget)
         {
-            clickedPositions.Add(new Vector2Int((int)column, (int)row));
+            _clickedPositions.Add(new Vector2Int((int)column, (int)row));
             PerformRepot();
         }
-        else if (CurrentShopState == ShopState.PickCrossBreedSourceOne || CurrentShopState == ShopState.PickCrossBreedSourceTwo)
+        else if (CurrentShopState == ShopState.PickCrossBreedSourceOne)
         {
-            clickedPositions.Add(new Vector2Int((int)column, (int)row));
+            _clickedPositions.Add(new Vector2Int((int)column, (int)row));
+        }
+        else if (CurrentShopState == ShopState.PickCrossBreedSourceTwo)
+        {
+            if (_clickedPositions[0] == new Vector2Int((int)column, (int)row))
+            {
+                // Can't select the same cactus twice for crossbreeding
+                return;
+            }
+
+            _clickedPositions.Add(new Vector2Int((int)column, (int)row));
         }
 
         CurrentShopState = CurrentShopState switch
@@ -94,7 +104,7 @@ public class ShopHandler : MonoBehaviour
             ShopState.PickCrossBreedSourceTwo => ShopState.PickCrossBreedTarget,
             _ => CurrentShopState
         };
-        clickedPositions.Add(new Vector2Int((int)column, (int)row));
+        
         UpdateStateText();
     }
 
@@ -102,12 +112,12 @@ public class ShopHandler : MonoBehaviour
     {
         if (CurrentShopState == ShopState.PickMoveTarget)
         {
-            clickedPositions.Add(new Vector2Int((int)column, (int)row));
+            _clickedPositions.Add(new Vector2Int((int)column, (int)row));
             PerformMove();
         }
         else if (CurrentShopState == ShopState.PickCrossBreedTarget)
         {
-            clickedPositions.Add(new Vector2Int((int)column, (int)row));
+            _clickedPositions.Add(new Vector2Int((int)column, (int)row));
             PerformCrossBreed();
         }
 
@@ -117,6 +127,7 @@ public class ShopHandler : MonoBehaviour
             ShopState.PickCrossBreedTarget => ShopState.Default,
             _ => CurrentShopState
         };
+
         UpdateStateText();
     }
 
@@ -150,30 +161,38 @@ public class ShopHandler : MonoBehaviour
 
     public void PerformMutation()
     {
-        Vector2Int sourcePos = clickedPositions[0];
+        Vector2Int sourcePos = _clickedPositions[0];
 
         // TODO
 
-        clickedPositions.Clear();
+        _clickedPositions.Clear();
         UpdateStateText();
     }
 
     public void PerformCrossBreed()
     {
-        Vector2Int sourceOnePos = clickedPositions[0];
-        Vector2Int sourceTwoPos = clickedPositions[1];
-        Vector2Int targetPos = clickedPositions[2];
+        Vector2Int sourceOnePos = _clickedPositions[0];
+        Vector2Int sourceTwoPos = _clickedPositions[1];
+        Vector2Int targetPos = _clickedPositions[2];
 
-        // TODO
+        CactusData sourceOneCactus = PlayerInventory.Instance.placedCacti[sourceOnePos.x, sourceOnePos.y];
+        CactusData sourceTwoCactus = PlayerInventory.Instance.placedCacti[sourceTwoPos.x, sourceTwoPos.y];
 
-        clickedPositions.Clear();
+        // Create child data
+        CactusData child = CactusFactory.CreateCrossBredCactus(sourceOneCactus, sourceTwoCactus);
+        PlayerInventory.Instance.placedCacti[targetPos.x, targetPos.y] = child;
+
+        // Actually place child in the world, not just the data
+        PlayerInventory.Instance.placedCactusEntities[targetPos.x, targetPos.y].UpdateEntityData();
+
+        _clickedPositions.Clear();
         UpdateStateText();
     }
 
     public void PerformMove()
     {
-        Vector2Int sourcePos = clickedPositions[0];
-        Vector2Int targetPos = clickedPositions[1];
+        Vector2Int sourcePos = _clickedPositions[0];
+        Vector2Int targetPos = _clickedPositions[1];
 
         CactusData sourceCactus = PlayerInventory.Instance.placedCacti[sourcePos.x, sourcePos.y];
         CactusData targetCactus = PlayerInventory.Instance.placedCacti[targetPos.x, targetPos.y];
@@ -189,17 +208,17 @@ public class ShopHandler : MonoBehaviour
         sourceEntity.UpdateEntityData();
         targetEntity.UpdateEntityData();
 
-        clickedPositions.Clear();
+        _clickedPositions.Clear();
         UpdateStateText();
     }
 
     public void PerformRepot()
     {
-        Vector2Int sourcePos = clickedPositions[0];
+        Vector2Int sourcePos = _clickedPositions[0];
 
         // TODO
 
-        clickedPositions.Clear();
+        _clickedPositions.Clear();
         UpdateStateText();
     }
 }
