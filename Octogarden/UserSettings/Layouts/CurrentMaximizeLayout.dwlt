@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 112}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 23615
+  controlID: 31911
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -47,9 +47,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Game\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 907.2001
+    x: 906.4
     y: -1072.8
-    width: 386.79993
+    width: 387.59998
     height: 568.4
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -106,10 +106,10 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 386.79993
+      width: 387.59998
       height: 547.4
-    m_Scale: {x: 0.25182286, y: 0.25182286}
-    m_Translation: {x: 193.39996, y: 273.7}
+    m_Scale: {x: 0.25234374, y: 0.25234374}
+    m_Translation: {x: 193.79999, y: 273.70004}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -117,12 +117,12 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -768
-      y: -1086.8751
+      y: -1084.6317
       width: 1536
-      height: 2173.7502
+      height: 2169.2634
     m_MinimalGUI: 1
-  m_defaultScale: 0.25182286
-  m_LastWindowPixelSize: {x: 483.4999, y: 710.5}
+  m_defaultScale: 0.25234374
+  m_LastWindowPixelSize: {x: 484.49997, y: 710.5}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 23616
+  controlID: 31912
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 56}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 23441
+  controlID: 31913
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -259,12 +259,18 @@ MonoBehaviour:
       - m_Data: -44266
       - m_Data: -1314
       - m_Data: 48894
+      - m_Data: 48926
       - m_Data: 48930
+      - m_Data: 48934
       - m_Data: 48938
+      - m_Data: 48970
       - m_Data: 49008
+      - m_Data: 49024
       - m_Data: 49042
       - m_Data: 49092
+      - m_Data: 49114
       - m_Data: 49132
+      - m_Data: 49156
       - m_Data: 49160
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -308,7 +314,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 387.2
     y: 0
-    width: 789.60004
+    width: 788.8
     height: 594.4
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
@@ -340,7 +346,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 117.600006
     y: -1072.8
-    width: 787.60004
+    width: 786.8
     height: 568.4
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -912,9 +918,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 90.37221, y: 950.1109, z: 0.022180758}
+    m_Target: {x: 7.2000003, y: -3.3700001, z: 1}
     speed: 2
-    m_Value: {x: 90.37221, y: 950.1109, z: 0.022180758}
+    m_Value: {x: 7.2000003, y: -3.3700001, z: 1}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -964,9 +970,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 149.7511
+    m_Target: 10
     speed: 2
-    m_Value: 149.7511
+    m_Value: 10
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1015,9 +1021,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1176.8
+    x: 1176
     y: 0
-    width: 388.79993
+    width: 389.59998
     height: 594.4
   m_MinSize: {x: 202, y: 226}
   m_MaxSize: {x: 4002, y: 4026}
@@ -1102,7 +1108,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Sprites/UI
+    - Assets/Resources/Prefabs
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1112,7 +1118,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Sprites/UI
+  - Assets/Resources/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\lasse\Documents\Macromedia GameJam 2026\Octogarden\Octogarden
   m_LockTracker:
@@ -1121,14 +1127,13 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs:
-    - m_Data: 50628
+    - m_Data: 50618
     m_LastClickedID:
-      m_Data: 50628
+      m_Data: 50618
     m_ExpandedIDs:
     - m_Data: 0
     - m_Data: 49770
     - m_Data: 49864
-    - m_Data: 50620
     - m_Data: 1000000000
     - m_Data: 2147483647
     m_RenameOverlay:
@@ -1192,9 +1197,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs:
-    - m_Data: 49070
-    m_LastClickedInstanceID: 49070
+    m_SelectedInstanceIDs: []
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 124878
@@ -1336,7 +1340,7 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 49070
+  m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0

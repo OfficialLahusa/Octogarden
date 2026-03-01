@@ -371,9 +371,10 @@ MonoBehaviour:
   hpText: {fileID: 9034911282495445334}
   flowerRenderer: {fileID: 2635812434822242187}
   pricklyPearPrefab: {fileID: 7750978577462643681, guid: 7553796afebeb79408326b6b8fde6942, type: 3}
+  meleeIndicatorPrefab: {fileID: 8976500695010953370, guid: 84e702aa26891e84aafcd8537918c7dd, type: 3}
   columnIndex: 0
   rowIndex: 0
-  attackIntervalSeconds: 1
+  attackIntervalSeconds: 1.65
 --- !u!1 &1889589790438194360
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,12 +13,13 @@ public class CactusEntity : MonoBehaviour
 
     [SerializeField]
     GameObject pricklyPearPrefab;
+    [SerializeField]
+    GameObject meleeIndicatorPrefab;
 
     CactusData entityData;
     
     public uint columnIndex = 0;
     public uint rowIndex = 0;
-    public float attackIntervalSeconds = 1f;
 
     private float _hueOffset;
     private float _attackCooldownTimer = 0f;
@@ -111,7 +112,7 @@ public class CactusEntity : MonoBehaviour
 
         if (!isRanged)
         {
-            float rayDist = 5f;
+            float rayDist = 0.85f;
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.right, rayDist);
             MeleeEnemy hitEnemy = null;
             foreach (RaycastHit2D hit in hits)
@@ -134,13 +135,28 @@ public class CactusEntity : MonoBehaviour
         {
             GameObject projectileObj = Instantiate(pricklyPearPrefab, transform.position, Quaternion.identity);
             PricklyPearProjectile projectile = projectileObj.GetComponent<PricklyPearProjectile>();
-            projectile.damageOnHit = 20; // TODO: Refine this damage value based on cactus stats
+            projectile.damageOnHit = entityData.AttackDamage;
         }
         else
         {
             // TODO: Implement melee attack logic (e.g. damage enemies in front of the cactus)
+            float rayDist = 2.25f;
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.right, rayDist);
+            MeleeEnemy hitEnemy = null;
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+                {
+                    hitEnemy = hit.collider.GetComponentInParent<MeleeEnemy>();
+                    hitEnemy.Damage(entityData.AttackDamage);
+                }
+            }
+
+            GameObject meleeIndicatorObj = Instantiate(meleeIndicatorPrefab, transform.position, Quaternion.identity);
+            meleeIndicatorObj.transform.position += Vector3.right * meleeIndicatorObj.transform.localScale.x / 2; // Position the indicator in front of the cactus
+
         }
 
-        _attackCooldownTimer = Random.Range(0.9f, 1.1f) * attackIntervalSeconds;
+        _attackCooldownTimer = Random.Range(0.9f, 1.1f) * entityData.AttackIntervalSeconds;
     }
 }

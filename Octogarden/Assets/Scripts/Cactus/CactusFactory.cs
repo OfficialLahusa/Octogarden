@@ -31,7 +31,9 @@ public static class CactusFactory
         CactusData data = new CactusData(
             GetRandomName(),
             cactusClass.Value,
-            GetRandomMaxHealthForClass(cactusClass.Value)
+            GetRandomMaxHealthForClass(cactusClass.Value),
+            GetRandomAttackIntervalForClass(cactusClass.Value),
+            GetRandomAttackDamageForClass(cactusClass.Value)
         );
 
         data.FlowerColor = GetRandomFlowerColor();
@@ -59,7 +61,37 @@ public static class CactusFactory
             case CactusClass.Ranged:
                 return (uint)UnityEngine.Random.Range(60, 80);
             case CactusClass.Tank:
-                return (uint)UnityEngine.Random.Range(140, 160);
+                return (uint)UnityEngine.Random.Range(140, 165);
+            default:
+                throw new ArgumentException("Invalid CactusClass");
+        }
+    }
+
+    private static float GetRandomAttackIntervalForClass(CactusClass cactusClass)
+    {
+        switch (cactusClass)
+        {
+            case CactusClass.Melee:
+                return UnityEngine.Random.Range(0.75f, 0.85f);
+            case CactusClass.Ranged:
+                return UnityEngine.Random.Range(1.5f, 1.7f);
+            case CactusClass.Tank:
+                return UnityEngine.Random.Range(1.0f, 1.65f);
+            default:
+                throw new ArgumentException("Invalid CactusClass");
+        }
+    }
+
+    private static uint GetRandomAttackDamageForClass(CactusClass cactusClass)
+    {
+        switch (cactusClass)
+        {
+            case CactusClass.Melee:
+                return (uint)UnityEngine.Random.Range(30, 40);
+            case CactusClass.Ranged:
+                return (uint)UnityEngine.Random.Range(18, 22);
+            case CactusClass.Tank:
+                return (uint)UnityEngine.Random.Range(25, 35);
             default:
                 throw new ArgumentException("Invalid CactusClass");
         }

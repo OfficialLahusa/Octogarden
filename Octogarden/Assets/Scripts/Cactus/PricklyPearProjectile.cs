@@ -22,7 +22,7 @@ public class PricklyPearProjectile : MonoBehaviour
         }
 
         _totalRotation += 360 * Time.deltaTime;
-        transform.position += Vector3.right * Time.deltaTime * 5f;
+        transform.position += Vector3.right * Time.deltaTime * 3.5f;
         transform.rotation = Quaternion.Euler(0, 0, -_totalRotation);
     }
 
