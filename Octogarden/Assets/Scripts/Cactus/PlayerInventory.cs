@@ -1,4 +1,5 @@
 #nullable enable
+using System;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
@@ -29,7 +30,7 @@ public class PlayerInventory : MonoBehaviour
 
     private PlayerInventory()
     {
-        CreateInitialPlacement();
+
     }
 
     public static readonly uint GRID_COLUMNS = 4;
@@ -37,9 +38,13 @@ public class PlayerInventory : MonoBehaviour
 
     public CactusData[,] placedCacti = new CactusData[GRID_COLUMNS, GRID_ROWS];
     public uint Seaweed { get; set; } = 0;
+    public bool IsInitialized { get; private set; } = false;
 
-    private static void CreateRandomInitialPlacement()
+    public static void CreateRandomInitialPlacement()
     {
+        if(Instance.IsInitialized)
+            throw new InvalidOperationException("PlayerInventory is already initialized.");
+
         for (uint col = 0; col < GRID_COLUMNS; col++)
         {
             for (uint row = 0; row < GRID_ROWS; row++)
@@ -47,10 +52,15 @@ public class PlayerInventory : MonoBehaviour
                 Instance.placedCacti[col, row] = CactusFactory.CreateCactus();
             }
         }
+
+        Instance.IsInitialized = true;
     }
 
-    private static void CreateInitialPlacement()
+    public static void CreateInitialPlacement()
     {
+        if (Instance.IsInitialized)
+            throw new InvalidOperationException("PlayerInventory is already initialized.");
+
         for (uint col = 0; col < 2; col++)
         {
             for (uint row = 0; row < GRID_ROWS; row++)
@@ -67,5 +77,7 @@ public class PlayerInventory : MonoBehaviour
                 Instance.placedCacti[col, row] = cactusData;
             }
         }
+
+        Instance.IsInitialized = true;
     }
 }

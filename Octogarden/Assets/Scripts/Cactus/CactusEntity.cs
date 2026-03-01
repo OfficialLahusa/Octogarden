@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class CactusEntity : MonoBehaviour
 {
+
     [SerializeField]
     TMP_Text hpText;
 
@@ -24,14 +25,20 @@ public class CactusEntity : MonoBehaviour
 
     void Awake()
     {
+        if(!PlayerInventory.Instance.IsInitialized)
+        {
+            PlayerInventory.CreateInitialPlacement();
+        }
+
         if(PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] != null)
         {
             entityData = PlayerInventory.Instance.placedCacti[columnIndex, rowIndex];
         }   
         else
         {
-            entityData = CactusFactory.CreateCactus();
-            PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] = entityData;
+            gameObject.SetActive(false);
+            //entityData = CactusFactory.CreateCactus();
+            //PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] = entityData;
         }
 
         // Set flower sprite color based on cactus class
