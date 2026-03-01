@@ -25,7 +25,8 @@ public class DialogueScreen : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Hide();   
+        Hide();
+        SetDialogueSequence(Resources.Load<DialogueSequence>("Scriptable Objects/Dialogues/Sample Sequence/Sample Sequence"));
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class DialogueScreen : MonoBehaviour
             NextLine();
         }
 
-        if (Keyboard.current.enterKey.wasPressedThisFrame)
+        if (false && Keyboard.current.enterKey.wasPressedThisFrame)
         {
             SetDialogueSequence(Resources.Load<DialogueSequence>("Scriptable Objects/Dialogues/Sample Sequence/Sample Sequence"));
         }

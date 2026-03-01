@@ -8,13 +8,22 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField]
     GameObject[] spawnPoints;
 
+    [SerializeField]
+    GameObject nextWaveButton;
+
+    [SerializeField]
+    GameObject dayBackground;
+    [SerializeField]
+    GameObject nightBackground;
+
     // Waves
     public SpawnWave[] spawnWaves;
 
     public bool IsCompleted { get { return WaveIndex >= spawnWaves.Length; } }
+    public bool IsWaveActive { get; private set; } = false;
 
     private WeightedRandom<GameObject> _weightedEnemyPicker;
-    public uint WaveIndex { get; private set; } = 0;
+    public int WaveIndex { get; private set; } = -1;
     private uint _remainingKills = 0;
     private uint _remainingSpawns = 0;
 
@@ -24,10 +33,11 @@ public class WaveSpawner : MonoBehaviour
 
     private void Awake()
     {
-        SetWave(0);
+        dayBackground.SetActive(true);
+        nightBackground.SetActive(false);
     }
 
-    public void SetWave(uint idx)
+    public void SetWave(int idx)
     {
         _weightedEnemyPicker = new WeightedRandom<GameObject>();
         foreach (SpawnEntry entry in spawnWaves[idx].spawnEntries)
@@ -40,7 +50,8 @@ public class WaveSpawner : MonoBehaviour
         _spawnInterval = spawnWaves[idx].spawnInterval;
         _spawnTimer = 0f;
 
-        PlayerInventory.Instance.HealAllCacti();
+        dayBackground.SetActive(false);
+        nightBackground.SetActive(true);
 
         if (spawnWaves[idx].sequenceBefore != null)
         {
@@ -65,7 +76,9 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
-        if(IsCompleted)
+        nextWaveButton.SetActive(!IsWaveActive);
+
+        if (IsCompleted || !IsWaveActive)
         {
             return;
         }
@@ -84,6 +97,15 @@ public class WaveSpawner : MonoBehaviour
         //_spawnInterval = (1.35f*1.5f) / (1 + (_runtime / 60f * 0.1f));
     }
 
+    public void NextWaveButtonPressed()
+    {
+        if (!IsWaveActive)
+        {
+            IsWaveActive = true;
+            NextWave();
+        }
+    }
+
     public void RegisterKill()
     {
         _remainingKills--;
@@ -95,7 +117,10 @@ public class WaveSpawner : MonoBehaviour
             }
 
             // TODO: Don't start immediately, wait for player to click button
-            NextWave();
+            IsWaveActive = false;
+            PlayerInventory.Instance.HealAllCacti();
+            dayBackground.SetActive(true);
+            nightBackground.SetActive(false);
         }
     }
 

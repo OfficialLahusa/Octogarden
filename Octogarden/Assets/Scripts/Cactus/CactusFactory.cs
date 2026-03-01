@@ -7,6 +7,7 @@ public static class CactusFactory
 {
     private static WeightedRandom<CactusClass> _cactusClassRandom;
     private static WeightedRandom<CactusFlowerColor> _cactusFlowerColorRandom;
+    private static WeightedRandom<CactusOutfitType> _cactusOutfitTypeRandom;
 
     private static string[] possibleNames = new string[] { "Cecilia", "Oriol", "Columba", "Otilia", "Salvio", "Reinaldo", "Salomón", "Ceferino", "Fausto", "Colombo", "Leonardo", "Balduino", "Úrsula", "Guadalupe", "Vidal", "Alba", "Lázaro", "Ángel", "Claudio", "Pascual", "Probo", "Valentín", "Teodora", "Fulgencio", "Verónica", "Olga", "Óscar", "Josep", "Baltasar", "Encarnación", "Alejandra", "Lucía", "Eduardo", "Nicanor", "Gregorio", "Bernarda", "Homero", "Javier", "Germán", "Áurea", "Ramón", "Laureano", "Adalberto", "Sansón", "Julio", "Moisés", "Eugenia", "Renato", "Priscila", "Begoña", "Facundo", "Albert", "Constantino", "Carolina", "Míriam", "Amadeo", "Salomé", "Cristóbal", "Acacio", "Alejandro", "Fabián", "Elena", "Marina", "Bárbara", "Arcadio", "Gloria", "Tadeo", "Onésimo", "Venancio", "Sergio", "Bruno", "Alfonso", "Calixto", "Daciano", "Clotilde", "Erico", "Nuria", "Gustavo", "Adelaida", "Ascensión", "Roque", "Montserrat", "Nicomedes", "Asunción", "Jerónimo", "Fortunato", "Ubaldo", "Godofredo", "Lorenzo", "Aristides", "Inocencio", "Abrahán", "Gerardo", "Juan", "Liduvina", "Benedicto", "Ignacio", "Toribio", "Isidro", "Ildefonso", "Borja", "Tito", "Margarita", "Edgar", "Lucas", "Fernando", "Benito", "Cándida", "Remedios", "Clara", "Enrique", "Siro", "Evaristo", "Virgilio", "Isabel", "Octavio", "Celia", "Amparo", "Adón", "Raimundo", "Artemio", "Cayo", "Timoteo", "Casio", "Matías", "Rigoberto", "Oseas", "Ambrosio", "Martín", "Álvaro", "Rufo", "Casiano", "Ladislao", "Segismundo", "Jacob", "Bartolomé", "Norberto", "Manuel", "Rogelio", "Natividad", "Lorena", "Daniel", "Narciso", "Dacio", "Macario", "Cleofás", "Xavier", "Ifigenia", "Anatolio", "Jordi", "Salvador", "Jaume", "Irene", "Raquel", "Aurora", "Mateo", "Anselmo", "Jacobo", "José", "Soledad", "Silvia", "Almudena", "Carmelo", "Magdalena", "Joaquín", "Pío", "Bernabé", "Aitor", "Sixto", "Julián", "Ireneo", "Lidia", "Damián", "Epifanía", "Catalina", "Anastasia", "Tobías", "Alfredo", "Cesáreo", "Cayetano", "Lucrecia", "Nicolás", "Rebeca", "Rosa", "Celina", "Ángela", "Juana", "Ramiro", "Cristian", "Sebastián", "Marcos", "Jacinto", "Francisca", "Romualdo", "Rita", "Leoncio", "Francesc", "Constancio", "Santiago", "Camilo" };
 
@@ -26,6 +27,12 @@ public static class CactusFactory
         _cactusFlowerColorRandom.Add(CactusFlowerColor.Blue, 0.25f);
         _cactusFlowerColorRandom.Add(CactusFlowerColor.Black, 0.1f);
         _cactusFlowerColorRandom.Add(CactusFlowerColor.Rainbow, 0.05f);
+
+        _cactusOutfitTypeRandom = new WeightedRandom<CactusOutfitType>();
+        _cactusOutfitTypeRandom.Add(CactusOutfitType.Basic, 1f);
+        _cactusOutfitTypeRandom.Add(CactusOutfitType.Barbed, 1f);
+        _cactusOutfitTypeRandom.Add(CactusOutfitType.Vampiric, 1f);
+        _cactusOutfitTypeRandom.Add(CactusOutfitType.Popsickle, 1f);
     }
 
     public static CactusData CreateCactus(CactusClass? cactusClass = null)
@@ -41,8 +48,9 @@ public static class CactusFactory
 
         data.FlowerColor = GetRandomFlowerColor();
 
-        // TODO: Remove. Testing different pot types at start
-        data.PotType = GetRandomPotType();
+        // TODO: Remove. Testing different pot types and outfits at start
+        //data.PotType = GetRandomPotType();
+        //data.OutfitType = _cactusOutfitTypeRandom.Draw();
 
         return data;
     }
@@ -51,18 +59,21 @@ public static class CactusFactory
     {
         CactusData child = new CactusData(original);
 
-        // Alter one random trait (class, outfit, flower color)
-        int traitToMutate = UnityEngine.Random.Range(0, 3);
+        // Alter one random trait (class, outfit, flower color, pot type)
+        int traitToMutate = UnityEngine.Random.Range(0, 4);
         switch (traitToMutate)
         {
             case 0:
                 child.Class = GetRandomCactusClass();
                 break;
             case 1:
-                child.OutfitType = GetRandomOutfitType();
+                child.OutfitType = _cactusOutfitTypeRandom.Draw();
                 break;
             case 2:
                 child.FlowerColor = GetRandomFlowerColor();
+                break;
+            case 4:
+                child.PotType = GetRandomPotType();
                 break;
         }
 
