@@ -103,12 +103,12 @@ TextureImporter:
       name: prickley pear_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 162
-        width: 897
-        height: 622
+        x: 19
+        y: 28
+        width: 900
+        height: 900
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8a28476be596006498513cb77bd7b640
     internalID: 0
     vertices: []
     indices: 

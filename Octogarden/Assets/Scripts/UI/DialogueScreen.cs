@@ -12,9 +12,13 @@ public class DialogueScreen : MonoBehaviour
     GameObject father;
     [SerializeField]
     GameObject mother;
+    [SerializeField]
+    GameObject squidGirl;
 
     [SerializeField]
     DialogueBox rightDialogueBox;
+    [SerializeField]
+    DialogueBox leftDialogueBox;
 
     private List<DialogueLine> _remainingDialogueLines;
 
@@ -63,11 +67,26 @@ public class DialogueScreen : MonoBehaviour
 
     private void SetDialogueLine(DialogueLine dialogueLine)
     {
-        mainCharacter.SetActive(dialogueLine.speaker == DialogueLine.Speaker.MainCharacter);
-        oldMan.SetActive(dialogueLine.speaker == DialogueLine.Speaker.OldMan);
-        father.SetActive(dialogueLine.speaker == DialogueLine.Speaker.Father);
-        mother.SetActive(dialogueLine.speaker == DialogueLine.Speaker.Mother);
-        rightDialogueBox.SetDialogue(dialogueLine);
+        mainCharacter.SetActive(dialogueLine.speaker == DialogueSpeaker.MainCharacter);
+        oldMan.SetActive(dialogueLine.speaker == DialogueSpeaker.OldMan);
+        father.SetActive(dialogueLine.speaker == DialogueSpeaker.Father);
+        mother.SetActive(dialogueLine.speaker == DialogueSpeaker.Mother);
+        squidGirl.SetActive(dialogueLine.speaker == DialogueSpeaker.SquidGirl);
+
+        if (dialogueLine.speaker == DialogueSpeaker.MainCharacter)
+        {
+            rightDialogueBox.gameObject.SetActive(true);
+            leftDialogueBox.gameObject.SetActive(false);
+            rightDialogueBox.SetDialogue(dialogueLine);
+            
+        }
+        else
+        {
+            rightDialogueBox.gameObject.SetActive(false);
+            leftDialogueBox.gameObject.SetActive(true);
+            leftDialogueBox.SetDialogue(dialogueLine);
+        }
+            
     }
 
     private void Hide()

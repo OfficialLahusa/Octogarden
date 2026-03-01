@@ -19,6 +19,15 @@ public class DialogueBox : MonoBehaviour
         _currentOffsetY = 0f;
     }
 
+    /*private void OnEnable()
+    {
+        if (_initialPosY == 0f)
+        {
+            _initialPosY = _rectTransform.anchoredPosition.y;
+        }
+        _rectTransform.anchoredPosition = new Vector2(_rectTransform.anchoredPosition.x, _initialPosY - 10000f);
+    }*/
+
     void Update()
     {
         _currentOffsetY += 2000f * Time.unscaledDeltaTime; // Move up at a speed of 2000 units per second
@@ -34,14 +43,17 @@ public class DialogueBox : MonoBehaviour
     {
         actorText.text = dialogueLine.speaker switch
         {
-            DialogueLine.Speaker.MainCharacter => "You",
-            DialogueLine.Speaker.OldMan => "Master Monty",
-            DialogueLine.Speaker.Father => "Lord of the Sea",
-            DialogueLine.Speaker.Mother => "Lady of the Sea",
+            DialogueSpeaker.MainCharacter => "You",
+            DialogueSpeaker.OldMan => "Master Monty",
+            DialogueSpeaker.Father => "Lord of the Sea",
+            DialogueSpeaker.Mother => "Lady of the Sea",
+            DialogueSpeaker.SquidGirl => "Squid Girl",
+            DialogueSpeaker.Event => "Event",
             _ => "Unknown"
         };
         contentText.text = dialogueLine.text;
 
         _currentOffsetY = -2000f;
+        _rectTransform.anchoredPosition = new Vector2(_rectTransform.anchoredPosition.x, _initialPosY + _currentOffsetY);
     }
 }
