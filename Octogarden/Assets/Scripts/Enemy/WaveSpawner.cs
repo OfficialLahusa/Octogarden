@@ -7,9 +7,9 @@ public class WaveSpawner : MonoBehaviour
 
     // Enemy Prefabs
     [SerializeField]
-    GameObject basicEnemy;
+    GameObject[] enemyPrefabs;
 
-    private const float SPAWN_INTERVAL = 0.65f;
+    private const float SPAWN_INTERVAL = 1.35f*10;
     private float spawnTimer = 0f;
 
     void Update()
@@ -28,6 +28,7 @@ public class WaveSpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         int spawnIndex = Random.Range(0, spawnPoints.Length);
-        Instantiate(basicEnemy, spawnPoints[spawnIndex].transform.position, Quaternion.identity);
+        int enemyIndex = Random.Range(0, enemyPrefabs.Length);
+        Instantiate(enemyPrefabs[enemyIndex], spawnPoints[spawnIndex].transform.position, Quaternion.identity);
     }
 }
