@@ -1571,6 +1571,7 @@ GameObject:
   - component: {fileID: 1508011676}
   - component: {fileID: 1508011678}
   - component: {fileID: 1508011677}
+  - component: {fileID: 1508011679}
   m_Layer: 5
   m_Name: Seaweed Counter
   m_TagString: Untagged
@@ -1697,6 +1698,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508011675}
   m_CullTransparentMesh: 1
+--- !u!114 &1508011679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508011675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ca61d95af256f4d9279abbc6ed1990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SeaweedDisplay
 --- !u!1001 &1524053577
 PrefabInstance:
   m_ObjectHideFlags: 0

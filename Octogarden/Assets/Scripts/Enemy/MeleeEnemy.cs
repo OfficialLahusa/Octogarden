@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class MeleeEnemy : MonoBehaviour
 {
     [SerializeField]
     uint maxHP = 100;
@@ -20,6 +20,9 @@ public class Enemy : MonoBehaviour
     float walkWobbleStrength = 7.5f;
     [SerializeField]
     float walkWobbleSpeed = 2.5f;
+
+    [SerializeField]
+    uint seaweedDroppedOnKill = 10;
 
     float lifetime = 0f;
     float attackCooldownTimer = 0f;
@@ -72,6 +75,7 @@ public class Enemy : MonoBehaviour
         if (damageAmount >= currentHP)
         {
             currentHP = 0;
+            PlayerInventory.Instance.Seaweed += seaweedDroppedOnKill;
             Destroy(gameObject);
         }
         else

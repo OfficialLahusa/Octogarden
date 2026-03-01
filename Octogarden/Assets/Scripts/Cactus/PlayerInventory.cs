@@ -27,11 +27,45 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    private PlayerInventory() { }
+    private PlayerInventory()
+    {
+        CreateInitialPlacement();
+    }
 
     public static readonly uint GRID_COLUMNS = 4;
     public static readonly uint GRID_ROWS = 5;
 
     public CactusData[,] placedCacti = new CactusData[GRID_COLUMNS, GRID_ROWS];
-    public int Seaweed { get; private set; } = 250;
+    public uint Seaweed { get; set; } = 0;
+
+    private static void CreateRandomInitialPlacement()
+    {
+        for (uint col = 0; col < GRID_COLUMNS; col++)
+        {
+            for (uint row = 0; row < GRID_ROWS; row++)
+            {
+                Instance.placedCacti[col, row] = CactusFactory.CreateCactus();
+            }
+        }
+    }
+
+    private static void CreateInitialPlacement()
+    {
+        for (uint col = 0; col < 2; col++)
+        {
+            for (uint row = 0; row < GRID_ROWS; row++)
+            {
+                CactusData? cactusData = null;
+                if (col == 0)
+                {
+                    cactusData = CactusFactory.CreateCactus(CactusClass.Ranged);
+                }
+                else
+                {
+                    cactusData = CactusFactory.CreateCactus(row % 2 == 0 ? CactusClass.Melee : CactusClass.Tank);
+                }
+                Instance.placedCacti[col, row] = cactusData;
+            }
+        }
+    }
 }
