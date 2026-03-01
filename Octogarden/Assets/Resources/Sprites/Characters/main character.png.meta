@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 021487674bbe14e49a15fd12357424c4
+guid: 1b20a4c72c7e33843816e21422050469
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2837482540917343816
-    second: Haus Tag Home_0
+      213: 898468643197113649
+    second: main_teenie_bitch_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Haus Tag Home_0
+      name: main_teenie_bitch_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 612
         y: 0
-        width: 1920
-        height: 1080
+        width: 852
+        height: 1970
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 84640cb5653c06720800000000000000
-      internalID: 2837482540917343816
+      spriteID: 135579f7870087c00800000000000000
+      internalID: 898468643197113649
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Haus Tag Home_0: 2837482540917343816
+      main_teenie_bitch_0: 898468643197113649
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,8 +13,10 @@ public class CactusData
     // TODO: Stat system
     public uint MaxHealth { get; set; }
     public uint CurrentHealth { get; set; }
+    public float AttackIntervalSeconds { get; set; }
+    public uint AttackDamage { get; set; }
 
-    public CactusData(string name, CactusClass mechanicalClass, uint maxHealth)
+    public CactusData(string name, CactusClass mechanicalClass, uint maxHealth, float attackIntervalSeconds, uint attackDamage)
     {
         Name = name;
         Class = mechanicalClass;
@@ -24,6 +26,8 @@ public class CactusData
         Affixes = CactusAffix.None;
         MaxHealth = maxHealth;
         CurrentHealth = maxHealth;
+        AttackIntervalSeconds = attackIntervalSeconds;
+        AttackDamage = attackDamage;
     }
 
     public CactusData(CactusData other)
@@ -36,5 +40,7 @@ public class CactusData
         Affixes = other.Affixes;
         MaxHealth = other.MaxHealth;
         CurrentHealth = other.CurrentHealth;
+        AttackIntervalSeconds = other.AttackIntervalSeconds;
+        AttackDamage = other.AttackDamage;
     }
 }

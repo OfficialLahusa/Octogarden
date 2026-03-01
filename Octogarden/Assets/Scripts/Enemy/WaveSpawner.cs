@@ -9,20 +9,23 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField]
     GameObject[] enemyPrefabs;
 
-    private const float SPAWN_INTERVAL = 1.35f*10;
-    private float spawnTimer = 0f;
+    private float _spawnInterval = 1.35f*1;
+    private float _spawnTimer = 0f;
+    private float _runtime = 0f;
 
     void Update()
     {
-        if (spawnTimer <= 0f)
+        if (_spawnTimer <= 0f)
         {
             SpawnEnemy();
-            spawnTimer = SPAWN_INTERVAL;
+            _spawnTimer = _spawnInterval;
         }
         else
         {
-            spawnTimer -= Time.deltaTime;
+            _spawnTimer -= Time.deltaTime;
         }
+
+        _spawnInterval = (1.35f*1.5f) / (1 + (_runtime / 60f * 0.1f));
     }
 
     private void SpawnEnemy()

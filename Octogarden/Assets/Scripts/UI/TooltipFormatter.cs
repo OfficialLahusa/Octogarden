@@ -19,7 +19,9 @@ public class TooltipFormatter
         sb.AppendLine("Flower Color: " + cactusData.FlowerColor.ToString());
         sb.AppendLine("Pot: " + cactusData.PotType.ToString());
         sb.AppendLine("Affixes: " + cactusData.Affixes.ToString());
+        sb.AppendLine("\nBase Stats:");
         sb.AppendLine($"Health: {cactusData.CurrentHealth}/{cactusData.MaxHealth}");
+        sb.AppendLine($"Attack: {cactusData.AttackDamage} damage every {cactusData.AttackIntervalSeconds:n2}s");
         sb.AppendLine("</size>");
 
         return sb.ToString();
