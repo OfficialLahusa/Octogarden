@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ca7e28dfb0b2a48875e8864bd60a02, type: 3}
+  m_Name: Slow Enemy
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnEntry
+  prefab: {fileID: 3836229025245626024, guid: b1273dd61fd616849baad089b9cf609c, type: 3}
+  weight: 1

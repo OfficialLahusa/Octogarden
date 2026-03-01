@@ -3766,16 +3766,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09cd23c5a55eed24897d1576a77fa861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
+  dialogueScreen: {fileID: 0}
   spawnPoints:
   - {fileID: 1240200218}
   - {fileID: 2106619890}
   - {fileID: 1830176537}
   - {fileID: 682992497}
   - {fileID: 791821357}
-  enemyPrefabs:
-  - {fileID: 439238736602847331, guid: 4affd7d477ea1b748a535fd8f470d800, type: 3}
-  - {fileID: 1561121229343903502, guid: 0086f2272d201a24db2fba0f28c1595d, type: 3}
-  - {fileID: 3836229025245626024, guid: b1273dd61fd616849baad089b9cf609c, type: 3}
+  spawnWaves:
+  - {fileID: 11400000, guid: e24a2640b141bd346b99c8d317c21800, type: 2}
+  - {fileID: 11400000, guid: 256fcd9fc618e1d4fbda418552fd089c, type: 2}
+  - {fileID: 11400000, guid: 619d9b5cf9da1984f9856a61316a3274, type: 2}
+  - {fileID: 11400000, guid: e8b76143f7530314c95d70199db6885a, type: 2}
 --- !u!4 &1133121192
 Transform:
   m_ObjectHideFlags: 0
@@ -6244,6 +6246,7 @@ GameObject:
   - component: {fileID: 2062684386}
   - component: {fileID: 2062684389}
   - component: {fileID: 2062684388}
+  - component: {fileID: 2062684390}
   m_Layer: 5
   m_Name: Wave Counter
   m_TagString: Untagged
@@ -6370,6 +6373,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062684385}
   m_CullTransparentMesh: 1
+--- !u!114 &2062684390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062684385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51949d1719840844f9b38e0972ec5038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveDisplay
 --- !u!1001 &2067343859
 PrefabInstance:
   m_ObjectHideFlags: 0
