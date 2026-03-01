@@ -40,7 +40,9 @@ public class WaveSpawner : MonoBehaviour
         _spawnInterval = spawnWaves[idx].spawnInterval;
         _spawnTimer = 0f;
 
-        if(spawnWaves[idx].sequenceBefore != null)
+        PlayerInventory.Instance.HealAllCacti();
+
+        if (spawnWaves[idx].sequenceBefore != null)
         {
             dialogueScreen.SetDialogueSequence(spawnWaves[idx].sequenceBefore);
         }
