@@ -41,13 +41,13 @@ public class CactusEntity : MonoBehaviour
             //PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] = entityData;
         }
 
+        _hueOffset = Random.Range(0f, 1f);
+
         // Set flower sprite color based on cactus class
-        if (flowerRenderer != null)
+        if (flowerRenderer != null && entityData != null)
         {
             flowerRenderer.color = entityData.FlowerColor.ToColor();
         }
-
-        _hueOffset = Random.Range(0f, 1f);
     }
 
     void Update()
