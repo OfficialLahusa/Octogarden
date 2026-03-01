@@ -3766,7 +3766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09cd23c5a55eed24897d1576a77fa861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveSpawner
-  dialogueScreen: {fileID: 0}
+  dialogueScreen: {fileID: 1503051349}
   spawnPoints:
   - {fileID: 1240200218}
   - {fileID: 2106619890}
