@@ -41,6 +41,9 @@ public static class CactusFactory
 
         data.FlowerColor = GetRandomFlowerColor();
 
+        // TODO: Remove. Testing different pot types at start
+        data.PotType = GetRandomPotType();
+
         return data;
     }
 
@@ -179,6 +182,12 @@ public static class CactusFactory
     {
         Array values = Enum.GetValues(typeof(CactusOutfitType));
         return (CactusOutfitType)values.GetValue(UnityEngine.Random.Range(0, values.Length));
+    }
+
+    private static CactusPotType GetRandomPotType()
+    {
+        Array values = Enum.GetValues(typeof(CactusPotType));
+        return (CactusPotType)values.GetValue(UnityEngine.Random.Range(0, values.Length));
     }
 
     private static CactusFlowerColor GetRandomFlowerColor()

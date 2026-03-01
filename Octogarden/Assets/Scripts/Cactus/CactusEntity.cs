@@ -11,6 +11,20 @@ public class CactusEntity : MonoBehaviour
     GameObject basicRanged;
     [SerializeField]
     GameObject basicTank;
+    [SerializeField]
+    GameObject basicPot;
+    [SerializeField]
+    GameObject steelPot;
+    [SerializeField]
+    GameObject wineBarrel;
+    [SerializeField]
+    GameObject plasticPot;
+    [SerializeField]
+    GameObject goldenPot;
+    [SerializeField]
+    GameObject falloutPot;
+    [SerializeField]
+    GameObject crystalPot;
 
     [SerializeField]
     TMP_Text hpText;
@@ -120,6 +134,14 @@ public class CactusEntity : MonoBehaviour
             basicMelee.SetActive(entityData.Class == CactusClass.Melee);
             basicRanged.SetActive(entityData.Class == CactusClass.Ranged);
             basicTank.SetActive(entityData.Class == CactusClass.Tank);
+
+            basicPot.SetActive(entityData.PotType == CactusPotType.Ceramic);
+            steelPot.SetActive(entityData.PotType == CactusPotType.Steel);
+            wineBarrel.SetActive(entityData.PotType == CactusPotType.WineBarrel);
+            plasticPot.SetActive(entityData.PotType == CactusPotType.Plastic);
+            goldenPot.SetActive(entityData.PotType == CactusPotType.Golden);
+            falloutPot.SetActive(entityData.PotType == CactusPotType.RadioactiveBarrel);
+            crystalPot.SetActive(entityData.PotType == CactusPotType.Glass);
         }
     }
 
