@@ -1,4 +1,6 @@
 using System;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public static class CactusFactory
 {
@@ -39,6 +41,45 @@ public static class CactusFactory
         data.FlowerColor = GetRandomFlowerColor();
 
         return data;
+    }
+
+    public static CactusData CreateCrossBredCactus(CactusData first, CactusData second)
+    {
+        CactusData child = new CactusData(first);
+
+        // Set random name
+        child.Name = GetRandomName();
+
+        // Set default pot type
+        child.PotType = CactusPotType.Ceramic;
+
+        // Parent inheritance choices
+        if (UnityEngine.Random.value < 0.5f)
+        {
+            child.Class = second.Class;
+        }
+        if (UnityEngine.Random.value < 0.5f)
+        {
+            child.OutfitType = second.OutfitType;
+        }
+        if (UnityEngine.Random.value < 0.5f)
+        {
+            child.FlowerColor = second.FlowerColor;
+        }
+
+        // Affix mixing
+        child.Affixes |= second.Affixes;
+
+        // Base trait mixing
+        child.MaxHealth = (uint)Mathf.Lerp(first.MaxHealth, second.MaxHealth, UnityEngine.Random.value);
+        child.AttackDamage = (uint)Mathf.Lerp(first.AttackDamage, second.AttackDamage, UnityEngine.Random.value);
+        child.AttackIntervalSeconds = Mathf.Lerp(first.AttackIntervalSeconds, second.AttackIntervalSeconds, UnityEngine.Random.value);
+        child.CurrentHealth = child.MaxHealth;
+
+        // Random mutation choices
+        // TODO
+
+        return child;
     }
 
     private static CactusClass GetRandomCactusClass()
