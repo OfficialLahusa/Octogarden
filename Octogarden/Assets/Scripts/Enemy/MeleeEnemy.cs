@@ -4,8 +4,7 @@ public class MeleeEnemy : MonoBehaviour
 {
     [SerializeField]
     uint maxHP = 100;
-    [SerializeField]
-    uint currentHP = 100;
+    
     [SerializeField]
     float movementSpeed = 2f;
 
@@ -24,22 +23,23 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField]
     uint seaweedDroppedOnKill = 10;
 
-    float lifetime = 0f;
-    float attackCooldownTimer = 0f;
+    private float _lifetime = 0f;
+    private float _attackCooldownTimer = 0f;
+    private uint _currentHP;
 
-    void Start()
+    void Awake()
     {
-        
+        _currentHP = maxHP;
     }
 
     void Update()
     {
-        lifetime += Time.deltaTime;
+        _lifetime += Time.deltaTime;
 
-        attackCooldownTimer -= Time.deltaTime;
-        if (attackCooldownTimer <= 0f)
+        _attackCooldownTimer -= Time.deltaTime;
+        if (_attackCooldownTimer <= 0f)
         {
-            attackCooldownTimer = 0f;
+            _attackCooldownTimer = 0f;
         }
 
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.left, meleeRange);
@@ -55,30 +55,30 @@ public class MeleeEnemy : MonoBehaviour
             }
         }
 
-        if (hasHit && hitCactus != null && attackCooldownTimer <= 0f)
+        if (hasHit && hitCactus != null && _attackCooldownTimer <= 0f)
         {
             hitCactus.Damage(attackDamage);
-            attackCooldownTimer = attackIntervalSeconds;
+            _attackCooldownTimer = attackIntervalSeconds;
         }
 
         //Debug.DrawLine(transform.position, transform.position + Vector3.left * rayDist, hasHit ? Color.green : Color.red, 0f, false);
         if (!hasHit)
             transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
 
-        transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Sin(lifetime * walkWobbleSpeed * movementSpeed) * walkWobbleStrength);
+        transform.rotation = Quaternion.Euler(0f, 0f, Mathf.Sin(_lifetime * walkWobbleSpeed * movementSpeed) * walkWobbleStrength);
     }
 
     public void Damage(uint damageAmount)
     {
-        if (damageAmount >= currentHP)
+        if (damageAmount >= _currentHP)
         {
-            currentHP = 0;
+            _currentHP = 0;
             PlayerInventory.Instance.Seaweed += seaweedDroppedOnKill;
             Destroy(gameObject);
         }
         else
         {
-            currentHP -= damageAmount;
+            _currentHP -= damageAmount;
         }
     }
 }

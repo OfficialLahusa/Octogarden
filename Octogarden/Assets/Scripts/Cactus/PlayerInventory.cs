@@ -37,6 +37,7 @@ public class PlayerInventory : MonoBehaviour
     public static readonly uint GRID_ROWS = 5;
 
     public CactusData[,] placedCacti = new CactusData[GRID_COLUMNS, GRID_ROWS];
+    public CactusEntity?[,] placedCactusEntities = new CactusEntity[GRID_COLUMNS, GRID_ROWS];
     public uint Seaweed { get; set; } = 0;
     public bool IsInitialized { get; private set; } = false;
 
@@ -79,5 +80,14 @@ public class PlayerInventory : MonoBehaviour
         }
 
         Instance.IsInitialized = true;
+    }
+
+    public void RegisterCactusEntity(CactusEntity entity, uint columnIndex, uint rowIndex)
+    {
+        if (placedCactusEntities[columnIndex, rowIndex] != null)
+        {
+            Debug.LogWarning($"Overwriting existing cactus entity at ({columnIndex}, {rowIndex})");
+        }
+        placedCactusEntities[columnIndex, rowIndex] = entity;
     }
 }
