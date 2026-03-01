@@ -31,24 +31,12 @@ public class CactusEntity : MonoBehaviour
             PlayerInventory.CreateInitialPlacement();
         }
 
-        if(PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] != null)
-        {
-            entityData = PlayerInventory.Instance.placedCacti[columnIndex, rowIndex];
-        }   
-        else
-        {
-            gameObject.SetActive(false);
-            //entityData = CactusFactory.CreateCactus();
-            //PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] = entityData;
-        }
+        // Register entity in inventory for reference by other systems (e.g. ShopHandler)
+        PlayerInventory.Instance.RegisterCactusEntity(this, columnIndex, rowIndex);
 
-        _hueOffset = Random.Range(0f, 1f);
+        UpdateEntityData();
 
-        // Set flower sprite color based on cactus class
-        if (flowerRenderer != null && entityData != null)
-        {
-            flowerRenderer.color = entityData.FlowerColor.ToColor();
-        }
+        _hueOffset = Random.Range(0f, 1f);        
     }
 
     void Update()
@@ -71,11 +59,18 @@ public class CactusEntity : MonoBehaviour
                 break;
             }
         }
-        
+
 
         if (wasHovered)
         {
             TooltipManager.ShowTooltip(entityData);
+
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                // Trigger ShopHandler Event
+                ShopHandler shopHandler = FindFirstObjectByType<ShopHandler>();
+                shopHandler.OnClickExistingCactus(columnIndex, rowIndex);
+            }
         }
 
         if (entityData.FlowerColor.Equals(CactusFlowerColor.Rainbow) && flowerRenderer != null)
@@ -86,6 +81,27 @@ public class CactusEntity : MonoBehaviour
         if (CanPerformAttack())
         {
             PerformAttack();
+        }
+    }
+
+    public void UpdateEntityData()
+    {
+        if (PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] != null)
+        {
+            gameObject.SetActive(true);
+            entityData = PlayerInventory.Instance.placedCacti[columnIndex, rowIndex];
+        }
+        else
+        {
+            gameObject.SetActive(false);
+            //entityData = CactusFactory.CreateCactus();
+            //PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] = entityData;
+        }
+
+        // Set flower sprite color based on cactus class
+        if (flowerRenderer != null && entityData != null)
+        {
+            flowerRenderer.color = entityData.FlowerColor.ToColor();
         }
     }
 
