@@ -132,50 +132,49 @@ public class CactusEntity : MonoBehaviour
 
     public void UpdateEntityData()
     {
-        if (PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] != null)
+        entityData = PlayerInventory.Instance.placedCacti[columnIndex, rowIndex];
+
+        if (entityData != null)
         {
             gameObject.SetActive(true);
-            entityData = PlayerInventory.Instance.placedCacti[columnIndex, rowIndex];
+
+            // Set flower sprite color based on cactus class
+            if (flowerRenderer != null)
+            {
+                flowerRenderer.color = entityData.FlowerColor.ToColor();
+            }
+
+            // Activate the correct variant based on cactus class
+            if (entityData != null)
+            {
+                basicMelee.SetActive(entityData.Class == CactusClass.Melee && entityData.OutfitType == CactusOutfitType.Basic);
+                basicRanged.SetActive(entityData.Class == CactusClass.Ranged && entityData.OutfitType == CactusOutfitType.Basic);
+                basicTank.SetActive(entityData.Class == CactusClass.Tank && entityData.OutfitType == CactusOutfitType.Basic);
+
+                vampireMelee.SetActive(entityData.Class == CactusClass.Melee && entityData.OutfitType == CactusOutfitType.Vampiric);
+                vampireRanged.SetActive(entityData.Class == CactusClass.Ranged && entityData.OutfitType == CactusOutfitType.Vampiric);
+                vampireTank.SetActive(entityData.Class == CactusClass.Tank && entityData.OutfitType == CactusOutfitType.Vampiric);
+
+                popsickleMelee.SetActive(entityData.Class == CactusClass.Melee && entityData.OutfitType == CactusOutfitType.Popsickle);
+                popsickleRanged.SetActive(entityData.Class == CactusClass.Ranged && entityData.OutfitType == CactusOutfitType.Popsickle);
+                popsickleTank.SetActive(entityData.Class == CactusClass.Tank && entityData.OutfitType == CactusOutfitType.Popsickle);
+
+                fisherMelee.SetActive(entityData.Class == CactusClass.Melee && entityData.OutfitType == CactusOutfitType.Barbed);
+                fisherRanged.SetActive(entityData.Class == CactusClass.Ranged && entityData.OutfitType == CactusOutfitType.Barbed);
+                fisherTank.SetActive(entityData.Class == CactusClass.Tank && entityData.OutfitType == CactusOutfitType.Barbed);
+
+                basicPot.SetActive(entityData.PotType == CactusPotType.Ceramic);
+                steelPot.SetActive(entityData.PotType == CactusPotType.Steel);
+                wineBarrel.SetActive(entityData.PotType == CactusPotType.WineBarrel);
+                plasticPot.SetActive(entityData.PotType == CactusPotType.Plastic);
+                goldenPot.SetActive(entityData.PotType == CactusPotType.Golden);
+                falloutPot.SetActive(entityData.PotType == CactusPotType.RadioactiveBarrel);
+                crystalPot.SetActive(entityData.PotType == CactusPotType.Glass);
+            }
         }
         else
         {
-            gameObject.SetActive(false);
-            //entityData = CactusFactory.CreateCactus();
-            //PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] = entityData;
-        }
-
-        // Set flower sprite color based on cactus class
-        if (flowerRenderer != null && entityData != null)
-        {
-            flowerRenderer.color = entityData.FlowerColor.ToColor();
-        }
-
-        // Activate the correct variant based on cactus class
-        if (entityData != null)
-        {
-            basicMelee.SetActive(entityData.Class == CactusClass.Melee && entityData.OutfitType == CactusOutfitType.Basic);
-            basicRanged.SetActive(entityData.Class == CactusClass.Ranged && entityData.OutfitType == CactusOutfitType.Basic);
-            basicTank.SetActive(entityData.Class == CactusClass.Tank && entityData.OutfitType == CactusOutfitType.Basic);
-
-            vampireMelee.SetActive(entityData.Class == CactusClass.Melee && entityData.OutfitType == CactusOutfitType.Vampiric);
-            vampireRanged.SetActive(entityData.Class == CactusClass.Ranged && entityData.OutfitType == CactusOutfitType.Vampiric);
-            vampireTank.SetActive(entityData.Class == CactusClass.Tank && entityData.OutfitType == CactusOutfitType.Vampiric);
-
-            popsickleMelee.SetActive(entityData.Class == CactusClass.Melee && entityData.OutfitType == CactusOutfitType.Popsickle);
-            popsickleRanged.SetActive(entityData.Class == CactusClass.Ranged && entityData.OutfitType == CactusOutfitType.Popsickle);
-            popsickleTank.SetActive(entityData.Class == CactusClass.Tank && entityData.OutfitType == CactusOutfitType.Popsickle);
-
-            fisherMelee.SetActive(entityData.Class == CactusClass.Melee && entityData.OutfitType == CactusOutfitType.Barbed);
-            fisherRanged.SetActive(entityData.Class == CactusClass.Ranged && entityData.OutfitType == CactusOutfitType.Barbed);
-            fisherTank.SetActive(entityData.Class == CactusClass.Tank && entityData.OutfitType == CactusOutfitType.Barbed);
-
-            basicPot.SetActive(entityData.PotType == CactusPotType.Ceramic);
-            steelPot.SetActive(entityData.PotType == CactusPotType.Steel);
-            wineBarrel.SetActive(entityData.PotType == CactusPotType.WineBarrel);
-            plasticPot.SetActive(entityData.PotType == CactusPotType.Plastic);
-            goldenPot.SetActive(entityData.PotType == CactusPotType.Golden);
-            falloutPot.SetActive(entityData.PotType == CactusPotType.RadioactiveBarrel);
-            crystalPot.SetActive(entityData.PotType == CactusPotType.Glass);
+            Hide();
         }
     }
 
@@ -185,35 +184,41 @@ public class CactusEntity : MonoBehaviour
         {
             entityData.CurrentHealth = 0;
             PlayerInventory.Instance.placedCacti[columnIndex, rowIndex] = null;
-            gameObject.SetActive(false);
-            basicMelee.SetActive(false);
-            basicRanged.SetActive(false);
-            basicTank.SetActive(false);
-
-            vampireMelee.SetActive(false);
-            vampireRanged.SetActive(false);
-            vampireTank.SetActive(false);
-
-            popsickleMelee.SetActive(false);
-            popsickleRanged.SetActive(false);
-            popsickleTank.SetActive(false);
-
-            fisherMelee.SetActive(false);
-            fisherRanged.SetActive(false);
-            fisherTank.SetActive(false);
-
-            basicPot.SetActive(false);
-            steelPot.SetActive(false);
-            wineBarrel.SetActive(false);
-            plasticPot.SetActive(false);
-            goldenPot.SetActive(false);
-            falloutPot.SetActive(false);
-            crystalPot.SetActive(false);
+            Hide();
         }
         else
         {
             entityData.CurrentHealth -= damageAmount;
         }
+    }
+
+    private void Hide()
+    {
+        Debug.Log("Called hide for position: " + columnIndex + ", " + rowIndex);
+        gameObject.SetActive(false);
+        basicMelee.SetActive(false);
+        basicRanged.SetActive(false);
+        basicTank.SetActive(false);
+
+        vampireMelee.SetActive(false);
+        vampireRanged.SetActive(false);
+        vampireTank.SetActive(false);
+
+        popsickleMelee.SetActive(false);
+        popsickleRanged.SetActive(false);
+        popsickleTank.SetActive(false);
+
+        fisherMelee.SetActive(false);
+        fisherRanged.SetActive(false);
+        fisherTank.SetActive(false);
+
+        basicPot.SetActive(false);
+        steelPot.SetActive(false);
+        wineBarrel.SetActive(false);
+        plasticPot.SetActive(false);
+        goldenPot.SetActive(false);
+        falloutPot.SetActive(false);
+        crystalPot.SetActive(false);
     }
 
     private bool CanPerformAttack()
