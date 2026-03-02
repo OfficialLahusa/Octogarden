@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95cb588e0a15a74e8e3e43e216afd8f, type: 3}
+  m_Name: Warning
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  dialogueLines:
+  - {fileID: 11400000, guid: 69d8cfa41893e8340b6350d99b9b3201, type: 2}
+  - {fileID: 11400000, guid: ac6b4cfb36d4af947a4311c249c77809, type: 2}
+  - {fileID: 11400000, guid: b13cb89836684d74baffed2954a4c9f0, type: 2}
