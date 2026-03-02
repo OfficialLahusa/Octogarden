@@ -194,7 +194,6 @@ public class CactusEntity : MonoBehaviour
 
     private void Hide()
     {
-        Debug.Log("Called hide for position: " + columnIndex + ", " + rowIndex);
         gameObject.SetActive(false);
         basicMelee.SetActive(false);
         basicRanged.SetActive(false);
