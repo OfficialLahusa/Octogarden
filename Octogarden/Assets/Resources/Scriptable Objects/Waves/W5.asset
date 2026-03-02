@@ -14,12 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpawnWave
   sequenceBefore: {fileID: 11400000, guid: 9442c6bd11aaaf542a1184928beec3fc, type: 2}
   sequenceAfter: {fileID: 11400000, guid: e3a26191adbaa4b41a400a4dfc1be568, type: 2}
-  spawnInterval: 0.8
+  spawnInterval: 0.85
   totalCount: 60
   spawnEntries:
   - {fileID: 11400000, guid: 84d4e1d86b3dcfc46a59cae3162a162a, type: 2}
   - {fileID: 11400000, guid: 081fa03e680f99a429d22b1fe2bae8b8, type: 2}
   - {fileID: 11400000, guid: dca8b49af09fa9d42b94e28d0eb4b4dd, type: 2}
-  - {fileID: 11400000, guid: 3c33b5261f574d644ad3aa862d8c3f75, type: 2}
-  - {fileID: 11400000, guid: 3c33b5261f574d644ad3aa862d8c3f75, type: 2}
+  - {fileID: 11400000, guid: 6dbf1d4b27bb85f478d42e22eee8699b, type: 2}
   isFallout: 0

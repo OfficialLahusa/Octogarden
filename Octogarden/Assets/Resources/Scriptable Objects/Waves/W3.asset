@@ -15,7 +15,7 @@ MonoBehaviour:
   sequenceBefore: {fileID: 0}
   sequenceAfter: {fileID: 0}
   spawnInterval: 0.65
-  totalCount: 20
+  totalCount: 30
   spawnEntries:
   - {fileID: 11400000, guid: 081fa03e680f99a429d22b1fe2bae8b8, type: 2}
   isFallout: 0
