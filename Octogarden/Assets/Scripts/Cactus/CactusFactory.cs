@@ -78,13 +78,13 @@ public static class CactusFactory
         }
 
         // Base trait mutation
-        child.MaxHealth = original.MaxHealth + (uint)UnityEngine.Random.Range(-12, 24);
+        child.MaxHealth = original.MaxHealth + (uint)UnityEngine.Random.Range(-4, 24);
         child.MaxHealth = child.MaxHealth < 1 ? 1 : child.MaxHealth; // Ensure MaxHealth doesn't drop below 1
 
-        child.AttackDamage = original.AttackDamage + (uint)UnityEngine.Random.Range(-6, 12);
+        child.AttackDamage = original.AttackDamage + (uint)UnityEngine.Random.Range(-3, 12);
         child.AttackDamage = child.AttackDamage < 1 ? 1 : child.AttackDamage; // Ensure AttackDamage doesn't drop below 1
 
-        child.AttackIntervalSeconds = Mathf.Max(original.AttackIntervalSeconds + UnityEngine.Random.Range(-0.15f, 0.075f), 0.01f);
+        child.AttackIntervalSeconds = Mathf.Max(original.AttackIntervalSeconds + UnityEngine.Random.Range(-0.15f, 0.025f), 0.01f);
 
         child.CurrentHealth = child.CurrentHealth > child.MaxHealth ? child.MaxHealth : child.CurrentHealth;
 

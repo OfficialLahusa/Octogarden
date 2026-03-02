@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: More Rogues
   m_EditorClassIdentifier: Assembly-CSharp::SpawnEntry
   prefab: {fileID: 439238736602847331, guid: 3ab40e5edfaa1e54e824d4d41e71b30e, type: 3}
-  weight: 0.45
+  weight: 0.35

@@ -52,7 +52,7 @@ MonoBehaviour:
   attackIntervalSeconds: 0.4
   walkWobbleStrength: 7.5
   walkWobbleSpeed: 2.5
-  seaweedDroppedOnKill: 20
+  seaweedDroppedOnKill: 25
 --- !u!1 &8681313523547809353
 GameObject:
   m_ObjectHideFlags: 0

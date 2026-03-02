@@ -48,11 +48,11 @@ MonoBehaviour:
   maxHP: 350
   movementSpeed: 1
   meleeRange: 0.2
-  attackDamage: 8
+  attackDamage: 5
   attackIntervalSeconds: 0.1
   walkWobbleStrength: 7.5
   walkWobbleSpeed: 2.5
-  seaweedDroppedOnKill: 8
+  seaweedDroppedOnKill: 115
 --- !u!1 &6884240597782849803
 GameObject:
   m_ObjectHideFlags: 0
