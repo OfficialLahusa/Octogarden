@@ -171,12 +171,12 @@ public class ShopHandler : MonoBehaviour
 
     public uint GetMutationCost()
     {
-        return 100+15*_mutationsPerformed;
+        return 80+15*_mutationsPerformed;
     }
 
     public uint GetCrossBreedCost()
     {
-        return 275+20*_crossbreedsPerformed;
+        return 135+20*_crossbreedsPerformed;
     }
 
     public void PerformMutation()
