@@ -178,7 +178,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: '<size=200%>Game Over</size>
 
-'
+
+    Your parents brought you back home to
+    the octopus hivemind.
+
+
+    No more cacti for you...
+
+
+    :('
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 80f2487b0daaa7840b5fbec711de8b40, type: 2}
   m_sharedMaterial: {fileID: -7739638946717333485, guid: 80f2487b0daaa7840b5fbec711de8b40, type: 2}
@@ -205,13 +213,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 44.49
+  m_fontSizeBase: 44.49
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
